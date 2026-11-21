@@ -1,16 +1,51 @@
-# React + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Небольшой менеджер задач на React. Домашнее задание HW_42, выполнены основная часть, дополнительное задание и задание повышенной сложности (ADV).
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Добавление задачи через форму. Пустая строка и строка из одних пробелов не добавляются, вместо этого появляется сообщение об ошибке.
+- Отметка задачи выполненной и возврат в невыполненные.
+- Удаление отдельной задачи.
+- Статистика: сколько всего задач и сколько выполнено.
+- Фильтр: все, выполненные, невыполненные.
+- Удаление только выполненных задач.
+- Очистка всего списка.
+- Сообщения о пустом списке:
+  - «No tasks yet» — задач нет совсем;
+  - «No tasks selected» — задачи есть, но ни одна не подходит под фильтр.
 
-## React Compiler
+## Схема проектирования
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Перед реализацией я набросала интерфейс, описала действия пользователя
+и определила, какие данные и обработчики передаются компонентам через пропсы.
 
-## Expanding the Oxlint configuration
+![Схема проектирования Task Manager](./docs/task-manager-planning.jpg)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Структура проекта
+
+```text
+src/
+├── App.jsx                 # состояние и вся логика
+├── App.css                 # стили компонентов
+├── index.css               # базовые стили и цветовые переменные
+├── data/
+│   └── initialTasks.js     # начальные задачи
+└── components/
+    ├── Header.jsx
+    ├── TaskForm.jsx        # форма добавления (локальное состояние поля и ошибки)
+    ├── TaskStatistics.jsx
+    ├── TaskFilter.jsx      # выпадающий список фильтра
+    ├── TaskList.jsx        # список и пустые сообщения
+    ├── TaskItem.jsx        # одна задача: чекбокс, название, удаление
+    ├── TaskListActions.jsx # «Clear All» и «Clear Completed»
+    └── Footer.jsx
+```
+
+## Запуск
+
+```bash
+npm install
+npm run dev
+```
+

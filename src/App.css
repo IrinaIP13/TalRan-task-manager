@@ -1,0 +1,213 @@
+/* ---------- Header ---------- */
+header {
+    margin: 0 -24px;
+    padding: 20px 24px;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Form ---------- */
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.task-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.task-button:hover {
+    background: var(--accent-hover);
+}
+
+.error {
+    width: 100%;
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--danger);
+}
+
+/* ---------- Statistics ---------- */
+.task-statistics {
+    display: flex;
+    gap: 8px;
+}
+
+.task-statistics p {
+    margin: 0;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.task-statistics p:first-child {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.task-statistics p:last-child {
+    background: var(--success-soft);
+    color: var(--success);
+}
+
+/* ---------- Filter ---------- */
+.form-select {
+    align-self: flex-start;
+    padding: 8px 12px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---------- List ---------- */
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* пустое сообщение: тот же класс, но тег <p> */
+p.task-list {
+    display: block;
+    padding: 24px;
+    text-align: center;
+    color: var(--accent);
+    font-weight: 500;
+    background: var(--item-bg);
+    border: 2px dashed var(--accent);
+    border-radius: 10px;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--item-bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    transition: transform 0.15s;
+}
+
+.task-list li:hover {
+    transform: translateX(4px);
+}
+
+.task-list li:has(.completed) {
+    border-left-color: var(--success);
+}
+
+.task-list input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--success);
+    cursor: pointer;
+}
+
+.task-item {
+    flex: 1;
+    word-break: break-word;
+    font-weight: 500;
+}
+
+.task-item.completed {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.delete-button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    background: var(--danger-soft);
+    color: var(--danger);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+/* ---------- Actions ---------- */
+.task-list-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.clear-all-button,
+.clear-completed-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.clear-completed-button {
+    background: var(--accent);
+}
+
+.clear-completed-button:hover {
+    background: var(--accent-hover);
+}
+
+.clear-all-button {
+    background: var(--danger);
+}
+
+.clear-all-button:hover {
+    background: var(--danger-hover);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+footer p {
+    margin: 0;
+}
