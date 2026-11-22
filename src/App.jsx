@@ -21,7 +21,7 @@ function App() {
             title: title.trim(),
             completed: false
         }
-        setTasks([...tasks, newTask])
+        setTasks(prev => [...prev, newTask])
     }
 
     function calculateStatistics() {
@@ -31,11 +31,12 @@ function App() {
     }
 
     function  toggleTask(id) {
-        setTasks(tasks.map(task => task.id === id ? {...task, completed: !task.completed} : task))
+        setTasks(prev => prev.map(task =>
+            task.id === id ? {...task, completed: !task.completed} : task))
     }
 
     function deleteTask(id) {
-        setTasks(tasks.filter(task => task.id !== id))
+        setTasks(prev => prev.filter(task => task.id !== id))
     }
 
     function clearAllTasks() {
@@ -43,7 +44,7 @@ function App() {
     }
 
     function clearCompletedTasks() {
-        setTasks(tasks.filter(task => !task.completed))
+        setTasks(prev => prev.filter(task => !task.completed))
     }
 
     function getVisibleTasks() {
